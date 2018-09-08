@@ -1,0 +1,21 @@
+<online-auction-navbar></online-auction-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <online-auction-search></online-auction-search>
+        </div>
+        <div class="col-md-9">
+            <div class="row carousel-holder">
+                <div class="col-md-12">
+                    <online-auction-carousel></online-auction-carousel>
+                </div>                
+            </div>
+            <div class="row">
+                <div *ngFor="let prod of products"  class="col-sm-4 col-lg-4 col-md-4">
+                    <online-auction-product-item [product]="prod"></online-auction-product-item>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
+<online-auction-footer></online-auction-footer>
