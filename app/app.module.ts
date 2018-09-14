@@ -22,6 +22,8 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
     ])],
     declarations : [ 
         ApplicationComponent,
+        HomeComponent,
+        ProductDetailComponent,
         ProductItemComponent,
         StarsComponent,
         CarouselComponent,

@@ -1,25 +1,26 @@
-import { Component } from "@angular/core";
-import { Product, ProductService } from "../../services/product-service";
+import {Component} from '@angular/core';
+import {Product, ProductService} from '../../services/product-service';
 
 @Component({
-    selector : "online-auction-home-page",
-    styleUrls : ['/home.css'],
-    template : `
-            <div class="row carousel-holder">
-                <div class="col-md-12">
-                    <online-auction-carousel></online-auction-carousel>
-                </div>
-            </div>
-            <div class="row">
-                <div *ngFor="let product of products" class="col-sm-4 col-lg-4 col-md-4">
-                    <online-auction-product-item [product]="product"></online-auction-product-item>
-                </div>
-            </div>`
+  selector: 'online-auction-home-page',
+  styleUrls: ['/home.css'],
+  template: `
+    <div class="row carousel-holder">
+      <div class="col-md-12">
+        <online-auction-carousel></online-auction-carousel>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let product of products" class="col-sm-4 col-lg-4 col-md-4">
+        <online-auction-product-item [product]="product"></online-auction-product-item>
+      </div>
+    </div>
+  `
 })
 export default class HomeComponent {
-    products: Product[] = [];
+  products: Product[] = [];
 
-    constructor ( private productService: ProductService ) {
-        this.products = this.productService.getProducts();
-    }
+  constructor(private productService: ProductService) {
+    this.products = this.productService.getProducts();
+  }
 }
