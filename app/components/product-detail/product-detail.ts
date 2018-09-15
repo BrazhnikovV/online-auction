@@ -1,17 +1,20 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { Product, Review, ProductService } from "../../services/product-service";
 
 @Component({
     selector : "online-auction-product-page",
-    template : `<div>
-                    <img src="http://placehold.it/800x300">
-                    <h4>{{ ProductTitle }}</h4>
-                </div>`
+    templateUrl : "app/components/product-detail/product-detail.html",
+    styleUrls : ['app/components/product-detail/product-detail.css']
 })
 export default class ProductDetailComponent {
-    productTitle: string;
 
-    constructor ( route: ActivatedRoute ) {
-        this.productTitle = route.snapshot.params["prodTitle"];
+    product: Product;
+    reviews: Review[];
+
+    constructor ( route: ActivatedRoute, productService: ProductService ) {
+        let prodId: number = parseInt( route.snapshot.params['productId'] );
+        this.product = productService.getProductById( prodId );
+        this.reviews = productService.getReviewsForProduct( this.product.id );
     }
 }

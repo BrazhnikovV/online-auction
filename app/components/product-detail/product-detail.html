@@ -1,0 +1,26 @@
+<div class="thumbnail">
+    <img src="http://placehold.it/300x150" alt="">
+    <div class="caption">
+        <h4 class="pull-right">{{ product.price }}</h4>
+        <h4>{{ product.title }}</h4>
+        <p>{{ product.description }}</p>
+    </div>
+    <div class="rating">
+        <p class="pull-right">{{ reviews.length }} reviews</p>
+        <p><online-auction-stars [rating]="product.rating"></online-auction-stars></p>
+    </div>
+</div>
+<div class="well" id="reviews-anchor">
+    <div class="row">
+        <div class="col-md-12"></div>
+    </div>
+    <div class="row" *ngFor="let review of reviews">
+        <hr>
+        <div class="col-md-12">
+            <online-auction-stars [rating]="product.rating"></online-auction-stars>
+            <span>{{ review.user }}</span>
+            <span class="pull-right">{{ review.timestamp | date: 'shortDate' }}</span>
+            <p>{{ review.comment }}</p>
+        </div>
+    </div>
+</div>

@@ -18,7 +18,7 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 @NgModule({
     imports : [ BrowserModule, RouterModule.forRoot([
         { path : '', component : HomeComponent },
-        { path : 'products/:prodTitle', component : ProductDetailComponent }
+        { path : 'products/:productId', component : ProductDetailComponent }
     ])],
     declarations : [ 
         ApplicationComponent,
