@@ -1,4 +1,7 @@
-<p>
-    <span *ngFor="let star of stars"class="oi oi-star" title="star" aria-hidden="true" [class.oi-star]="star"></span>
-    <span>{{ rating }}</span>
+<p class="stars">
+  <span *ngFor="let star of stars"
+        class="starrating glyphicon glyphicon-star"
+        [class.glyphicon-star-empty]="star">
+  </span>
+  <span>{{ rating }} stars</span>
 </p>

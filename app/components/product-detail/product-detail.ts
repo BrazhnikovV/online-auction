@@ -4,7 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 @Component({
     selector : "online-auction-product-page",
     template : `<div>
-                    <img src="http://placehold.it/820x320">
+                    <img src="http://placehold.it/800x300">
                     <h4>{{ ProductTitle }}</h4>
                 </div>`
 })

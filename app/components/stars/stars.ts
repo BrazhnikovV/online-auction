@@ -1,19 +1,23 @@
-import { Component, Input, OnInit } from "@angular/core";
+// tag::annotations[]
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-    templateUrl : "app/components/stars/stars.html",
-    styles : [ `.starrating { color: #d17581; }` ],
-    selector : "online-auction-stars",
-    styleUrls : [ "app/components/stars/open-iconic-bootstrap.min.css" ],
+  templateUrl: 'app/components/stars/stars.html',
+  selector: 'online-auction-stars',
+  styleUrls: ['app/components/stars/stars.css'],
+  inputs: ['rating', 'count'] // <1>
 })
+// end::annotations[]
+// tag::class[]
 export default class StarsComponent implements OnInit {
-    @Input() count: number = 5;
-    @Input() rating: number = 0;
-    stars : boolean[] = [];
+  count: number = 5; // <1>
+  rating: number = 0; // <2>
+  stars: boolean[] = []; // <3>
 
-    ngOnInit () {
-        for ( let i = 0; i <= this.count; i++ ) {
-            this.stars.push( i > this.rating );
-        }
+  ngOnInit() { // <4>
+    for (let i = 1; i <= this.count; i++) {
+      this.stars.push(i > this.rating);
     }
+  }
 }
+// end::class[]
