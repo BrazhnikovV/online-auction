@@ -1,7 +1,9 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
+import { ReactiveFormsModule } from "@angular/forms";
 
+import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import ApplicationComponent from "./components/application/application";
 import HomeComponent from "./components/home/home";
 import CarouselComponent from "./components/carousel/carousel";
@@ -12,11 +14,11 @@ import StarsComponent from "./components/stars/stars";
 import { ProductService } from "./services/product-service";
 import ProductItemComponent from "./components/product-item/product-item";
 import ProductDetailComponent from "./components/product-detail/product-detail";
-import { LocationStrategy, HashLocationStrategy } from "@angular/common";
+import { FilterPipe } from "./components/pipes/filter-pipe";
 
 
 @NgModule({
-    imports : [ BrowserModule, RouterModule.forRoot([
+    imports : [ BrowserModule, ReactiveFormsModule, RouterModule.forRoot([
         { path : '', component : HomeComponent },
         { path : 'products/:productId', component : ProductDetailComponent }
     ])],
@@ -29,7 +31,8 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
         CarouselComponent,
         NavbarComponent,
         SearchComponent,
-        FooterComponent
+        FooterComponent,
+        FilterPipe
     ],
     providers : [ ProductService, { provide : LocationStrategy, useClass : HashLocationStrategy } ],
     bootstrap : [ ApplicationComponent ]
