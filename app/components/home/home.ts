@@ -1,5 +1,10 @@
-import {Component} from '@angular/core';
-import {Product, ProductService} from '../../services/product-service';
+import { Component } from '@angular/core';
+import { FormControl } from "@angular/forms";
+import { Product, ProductService } from '../../services/product-service';
+import CarouselComponent from "../../components/carousel/carousel";
+import ProductItemComponent from "../../components/product-item/product-item";
+import { FilterPipe } from "../pipes/filter-pipe";
+
 
 @Component({
   selector: 'online-auction-home-page',
