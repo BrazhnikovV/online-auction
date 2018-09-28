@@ -25,17 +25,21 @@ export class Review {
 @Injectable()
 export class ProductService {
   getProducts(): Product[] {
-    return products.map(p => new Product(p.id, p.title, p.price, p.rating, p.description, p.categories));
+    return products.map( p => new Product( p.id, p.title, p.price, p.rating, p.description, p.categories));
   }
 
-  getProductById(productId: number): Product {
-    return products.find(p => p.id === productId);
+  getAllCategories () {
+    return ['Books', 'Electronics', 'Hardware'];
   }
 
-  getReviewsForProduct(productId: number): Review[] {
+  getProductById ( productId: number ): Product {
+    return products.find( p => p.id === productId );
+  }
+
+  getReviewsForProduct ( productId: number ): Review[] {
     return reviews
-        .filter(r => r.productId === productId)
-        .map(r => new Review(r.id, r.productId, new Date(r.timestamp), r.user, r.rating, r.comment));
+        .filter( r => r.productId === productId )
+        .map( r => new Review( r.id, r.productId, new Date( r.timestamp ), r.user, r.rating, r.comment ) );
   }
 }
 

@@ -15,16 +15,18 @@
         <div class="col-md-12"></div>
     </div>
     <div class="row">
-        <button (click)="isReviewHidden = !isReviewHidden" class="btn btn-success btn-green">Leave a Review</button>
+        <div class="col-md-12">
+            <button (click)="isReviewHidden = !isReviewHidden" class="btn btn-success btn-green">Leave a Review</button>
+        </div>        
     </div>
     <div [hidden]="isReviewHidden" class="row">
-        <div>
+        <div class="col-md-12">
             <online-auction-stars [(rating)]="new_rating" [readonly]="false" class="large"></online-auction-stars>
         </div>
-        <div>
+        <div class="col-md-12">
             <textarea [(ngModel)]="new_comment"></textarea>
         </div>
-        <div>
+        <div class="col-md-12">
             <button (click)="addReview()" class="btn">Add review</button>
         </div>
     </div>
