@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import ApplicationComponent from "./components/application/application";
@@ -18,7 +18,7 @@ import { FilterPipe } from "./components/pipes/filter-pipe";
 
 
 @NgModule({
-    imports : [ BrowserModule, ReactiveFormsModule, RouterModule.forRoot([
+    imports : [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot([
         { path : '', component : HomeComponent },
         { path : 'products/:productId', component : ProductDetailComponent }
     ])],

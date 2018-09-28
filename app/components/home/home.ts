@@ -14,7 +14,7 @@ import "rxjs/add/operator/debounceTime";
       </div>
     </div>
     <div class="row">
-      <div class=""col-md-12>
+      <div class="col-md-12">
         <div class="form-group">
           <input placeholder="Filter products by title" 
                  class="form-control" type="text" [formControl]="titleFilter">

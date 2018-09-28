@@ -14,10 +14,24 @@
     <div class="row">
         <div class="col-md-12"></div>
     </div>
+    <div class="row">
+        <button (click)="isReviewHidden = !isReviewHidden" class="btn btn-success btn-green">Leave a Review</button>
+    </div>
+    <div [hidden]="isReviewHidden" class="row">
+        <div>
+            <online-auction-stars [(rating)]="new_rating" [readonly]="false" class="large"></online-auction-stars>
+        </div>
+        <div>
+            <textarea [(ngModel)]="new_comment"></textarea>
+        </div>
+        <div>
+            <button (click)="addReview()" class="btn">Add review</button>
+        </div>
+    </div>
     <div class="row" *ngFor="let review of reviews">
         <hr>
         <div class="col-md-12">
-            <online-auction-stars [rating]="product.rating"></online-auction-stars>
+            <online-auction-stars [rating]="review.rating"></online-auction-stars>
             <span>{{ review.user }}</span>
             <span class="pull-right">{{ review.timestamp | date: 'shortDate' }}</span>
             <p>{{ review.comment }}</p>
